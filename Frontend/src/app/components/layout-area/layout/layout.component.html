@@ -1,0 +1,55 @@
+<mat-sidenav-container>
+
+      <mat-sidenav [(opened)]="opened">
+            <app-side-nav></app-side-nav>
+      </mat-sidenav>
+
+
+
+      <mat-sidenav-content>
+            <mat-toolbar color="primary">
+                  <mat-toolbar-row>
+
+                        <button mat-icon-button>
+                              <mat-icon (click)="opened = !opened">menu</mat-icon>
+                        </button>
+
+                        <button mat-icon-button [matMenuTriggerFor]="dropMenu" fxHide fxShow.xs fxShow.sm>
+                              <mat-icon>more_vert</mat-icon>
+                        </button>
+
+                        <button mat-raised-button color="primary" routerLinkActive="active" routerLink="/home" fxHide.xs
+                              fxHide.sm>
+                              Home
+                              <mat-icon>home</mat-icon>
+                        </button>
+
+                        <mat-menu #dropMenu="matMenu">
+                              <button mat-menu-item routerLink="/home">
+                                    Home
+                              </button>
+                              <ng-container *ngFor="let category of categories">
+                                    <button mat-menu-item routerLinkActive="active" [routerLink]="'categories/'+category.category">
+                                          {{category.category}}
+                                    </button>
+                                    <mat-divider></mat-divider>
+                              </ng-container>
+                        </mat-menu>
+
+                        <button *ngFor="let category of categories" mat-raised-button color="primary"
+                              routerLinkActive="active" [routerLink]="'categories/'+ category.category" fxHide.xs
+                              fxHide.sm>
+                              {{category.category}}
+                        </button>
+
+                        <app-auth-menu></app-auth-menu>
+
+                  </mat-toolbar-row>
+
+            </mat-toolbar>
+
+            <router-outlet></router-outlet>
+      </mat-sidenav-content>
+
+
+</mat-sidenav-container>

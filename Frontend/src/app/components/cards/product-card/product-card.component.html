@@ -1,0 +1,17 @@
+<mat-card>
+      <mat-card-title-group>
+
+            <mat-card-title>
+                  {{product.productName}}
+            </mat-card-title>
+            <mat-card-subtitle>{{product.price | currency : "ILS"}}</mat-card-subtitle>
+            <img mat-card-md-image [src]="imageSource + product.pictureName">
+      </mat-card-title-group>
+
+      <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="openDialog()">
+                  <mat-icon>add</mat-icon>
+                  Add To Cart
+            </button>
+      </mat-card-actions>
+</mat-card>

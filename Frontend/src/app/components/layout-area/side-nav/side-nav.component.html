@@ -1,0 +1,54 @@
+<ng-container *ngIf="!customer">
+      <p class="hello">Hello Guest.</p>
+      <hr>
+      <p>Please login to see your cart details</p>
+</ng-container>
+
+<ng-container *ngIf="customer">
+      <p class="hello">Hello {{customer.firstName + " "+ customer.lastName}}</p>
+      <hr>
+      <ng-container *ngIf="shoppingCart">
+            <ng-container *ngIf="itemsInCart?.length === 0">
+                  <p>
+                        Your shopping cart is empty.
+                        <br>
+                        Add some items to see the order description
+                  </p>
+            </ng-container>
+
+            <ng-container *ngIf="itemsInCart?.length > 0">
+                  <table>
+                        <thead>
+                              <tr>
+                                    <th>Name</th>
+                                    <th>Stock</th>
+                                    <th>Price</th>
+                              </tr>
+                        </thead>
+                        <tbody>
+                              <tr *ngFor="let item of itemsInCart">
+                                    <th>{{item.productName}}</th>
+                                    <th>{{item.stock}}</th>
+                                    <th>{{item.price * item.stock |currency:"ILS"}}</th>
+                              </tr>
+                        </tbody>
+                  </table>
+
+                  <p class="totalPrice">
+                        <mat-card-content>
+                              Total price : {{totalPrice}}
+                        </mat-card-content>
+                        <br>
+                        <button mat-button color="primary" routerLink="make-order">
+                              Order
+                              <mat-icon>send</mat-icon>
+                        </button>
+                  </p>
+            </ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="!shoppingCart">
+            <p>Your don't have an open shopping-cart. <br>
+                  Please create a new one.</p>
+      </ng-container>
+</ng-container>

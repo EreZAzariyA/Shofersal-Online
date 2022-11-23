@@ -1,0 +1,17 @@
+<p mat-dialog-title>Please set stock to order</p>
+
+<mat-dialog-content>
+      <button mat-raised-button color="accent" (click)="plus()">
+            +
+      </button>
+      {{stock}}
+      <button mat-raised-button color="accent" (click)="minus()">
+            -
+      </button>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+      <button mat-button mat-dialog-close>No Thanks</button>
+      <button mat-button [mat-dialog-close]="stock" cdkFocusInitial>Add</button>
+</mat-dialog-actions>

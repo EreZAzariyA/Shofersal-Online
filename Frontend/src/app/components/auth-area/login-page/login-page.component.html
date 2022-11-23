@@ -1,0 +1,50 @@
+<mat-grid-list cols="3" rowHeight="90%">
+      <mat-grid-tile>
+
+            <form #myForm="ngForm">
+                  <h1>Login</h1>
+                  
+                  <div class="btn-grope">
+                        <button type="button" mat-raised-button color="primary" routerLink="/home" [disabled]="!customer">
+                              Resume-Shopping
+                        </button>
+
+                        <button type="button" mat-raised-button color="accent" [disabled]="!customer">
+                              New Shopping-Cart
+                        </button>
+                  </div>
+
+
+                  <label>Username: </label>
+                  <input type="text" name="username" [(ngModel)]="credentials.username" #usernameBox="ngModel" required
+                        minlength="2" maxlength="30">
+                  <span *ngIf="usernameBox.errors?.['required']&& usernameBox.touched">Missing Username</span>
+
+                  <label>Password</label>
+                  <input type="password" name="password" [(ngModel)]="credentials.password">
+
+                  <button mat-icon-button (click)="login()" [disabled]="customer">
+                        <mat-icon>login</mat-icon>
+                        Login
+                  </button>
+            </form>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+            <p>Why you should buy from our store</p>
+      </mat-grid-tile>
+
+      <mat-grid-tile class="img">
+            <img mat-card-xl-image src="../../../../assets/images/login background image.jpg" alt="">
+
+            <mat-grid-tile-footer>
+                  Available products in our store : {{products?.length}}.
+                  <br><br>
+                  <ng-container *ngIf="customer">
+                        You have an open shopping-cart
+                  </ng-container>
+
+
+            </mat-grid-tile-footer>
+      </mat-grid-tile>
+</mat-grid-list>

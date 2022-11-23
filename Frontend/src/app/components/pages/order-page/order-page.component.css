@@ -1,0 +1,29 @@
+mat-card {
+      display: inline-block;
+      margin: 5px;
+}
+
+
+.search label,
+input {
+      margin: auto;
+}
+
+.backBtn {
+      position: absolute;
+      top: 10px;
+      right: 5px;
+}
+
+.total {
+      position: absolute;
+      bottom: 0;
+      left: 20px;
+}
+
+mat-grid-tile form label,
+input {
+      display: block;
+      margin: auto;
+      padding: 5px;
+}

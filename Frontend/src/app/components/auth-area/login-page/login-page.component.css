@@ -1,0 +1,9 @@
+form input,
+label {
+      display: block;
+      margin: auto;
+}
+
+.btn-grope>* {
+      margin: 5px;
+}

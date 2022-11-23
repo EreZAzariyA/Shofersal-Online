@@ -1,0 +1,19 @@
+<ng-container *ngIf="!customer">
+      <span>Hello Guest | </span>
+      <button color="accent" mat-raised-button routerLink="auth/login">
+            Login
+            <mat-icon>login</mat-icon>
+      </button>
+      <span> | </span>
+      <button color="accent" mat-raised-button routerLink="auth/register">
+            Register
+      </button>
+</ng-container>
+
+<ng-container *ngIf="customer">
+      <span>Hello {{customer.firstName + " " + customer.lastName}} | </span>
+      <button mat-raised-button routerLink="auth/logout">
+            Logout
+            <mat-icon>logout</mat-icon>
+      </button>
+</ng-container>

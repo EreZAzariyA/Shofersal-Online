@@ -1,0 +1,6 @@
+mat-card {
+      width: 15rem;
+      display: inline-block;
+      margin: 5px;
+      background-color: rgba(211, 211, 211, 0.300);
+}

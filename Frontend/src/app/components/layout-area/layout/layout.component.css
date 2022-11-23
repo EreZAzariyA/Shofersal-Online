@@ -1,0 +1,26 @@
+mat-sidenav-container,
+mat-sidenav-content {
+      height: 100%;
+}
+mat-toolbar{
+      position: sticky;
+      top: 0;
+      z-index: 1;
+}
+button.active {
+      height: 70%;
+      border: 1px solid lightcoral;
+}
+
+mat-sidenav {
+      border-radius: 0 20px 20px 0;
+      background-color: lightgray;
+      width: 250px;
+      color: black;
+}
+
+app-auth-menu {
+      position: absolute;
+      right: 1rem;
+      font-size: small;
+}
